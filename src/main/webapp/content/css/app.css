@@ -1,0 +1,117 @@
+body, #mainWrapper {
+	height: 95%;
+	background-color:rgb(245, 245, 245);
+}
+.im-centered { margin: auto; max-width: 1920px; }   /*center the content*/
+.generic-container {
+    width:98%;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #EAE7E7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 10px black;
+}
+
+body, .form-control{
+	font-size:12px!important;
+}
+
+.floatRight{
+	float:right;
+	margin-right: 18px;
+}
+
+.has-error{
+	color:red;
+}
+
+.formcontainer{
+	background-color: #DAE8E8;
+	padding: 20px;
+}
+
+.tablecontainer{
+	padding-left: 20px;
+}
+.custom-width {
+    width: 90px !important;
+}
+
+/***************************************************
+    for smart-table: tabs
+****************************************************/
+.st-sort-ascent:before{ content: '\25B2'; }
+.st-sort-descent:before{ content: '\25BC'; }
+/* active Tab pane*/
+.tab-content > .active {
+    font-size:14px!important;
+    /*background-color:rgb(245, 245, 245);*/
+}
+.nav-tabs > li {
+    float: left;
+    font-size:16px!important;
+    margin-bottom: -1px;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    font-size:16px!important;
+    background-color: #DAE8E8;
+    font-weight: bold;
+}
+/***************************************************
+    when editing fields set color for input field
+****************************************************/
+input.ng-valid { background-color: white; }
+input.ng-dirty { background-color: #f3f3f3; }
+/*input.ng-touched { background-color: lightgrey; }*/
+input.ng-pristine { background-color: white; }
+input.ng-invalid { background-color: lightpink; }
+/* form-wide */
+form.ng-pristine { /*background-color:lightblue;*/ }
+form.ng-dirty { /*background-color: lightblue;*/ }
+.top5 { margin-top:5px; }
+.top7 { margin-top:7px; }
+.top10 { margin-top:10px; }
+.top15 { margin-top:15px; }
+.top17 { margin-top:17px; }
+.top30 { margin-top:30px; }
+/*for Search Operator*/
+.search_op{
+    width: 42px !important;
+    font-family:"Times New Roman";
+    padding-top: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    font-weight: bold;
+    overflow-y: auto;
+}
+
+.myTable {
+    font-size: 16px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.myTable td, .myTable th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 4px;
+}
+
+.myTable tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.myTable th {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: #4CAF50; /*#00cc66;*/
+    color: white;
+}

@@ -1,0 +1,20 @@
+<div class="modal-header">
+
+    <h3 class="modal-title">
+        <span style="color: green" ng-class="{true: 'glyphicon glyphicon-info-sign', false: 'glyphicon glyphicon-question-sign'}[okButtonOnly]" ></span>{{" "+msgTitle}}</h3>
+</div>
+<div class="modal-body">
+    <ul>
+        <li ng-repeat="item in msgBody">
+            <div ng-bind="item" class="input-lg"></div>
+        </li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-show="!okButtonOnly" ng-click="cancel()">Cancel</button>
+</div>
+<!--ng-class="{true: 'glyphicon glyphicon-info-sign', false: 'glyphicon glyphicon-question-sign'}[okButtonOnly]"-->
+<!--<h3 class="modal-title">-->
+    <!--<a href="#" class="btn btn-info btn-lg"> <span ng-class="{true: 'glyphicon glyphicon-info-sign', false: 'glyphicon glyphicon-question-sign'}[okButtonOnly]"></span> </a>-->
+    <!--{{" "+msgTitle}}</h3>-->

@@ -1,0 +1,10 @@
+<div class="input-group" style="min-width: 166px;">
+    <input type="text" class="form-control input-sm" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+           placeholder="{{format}}"  close-text="Close"
+    />
+    <span class="input-group-btn">
+        <button type="button" class="btn input-group-addon" ng-click="open($event)" title="Open calendar">
+            <i class="glyphicon glyphicon-calendar"></i>
+        </button>
+    </span>
+</div>
