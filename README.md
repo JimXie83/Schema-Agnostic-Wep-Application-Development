@@ -42,6 +42,11 @@ SearchEditForAll.js file should be included for each page. This JavaScript file 
 Conclusion:
  By implementing this framework, the effort of web application development can be significantly reduced on both server-side and client-side. The actual codes on both server and client sides only consists of a few hundred lines of codes, it is designed with performance consideration, and easily maintained. 
 
-
+<h3>Installation:</h3>
+1. install mySql 5.5 (or above)
+2. create a schema "agnostic"
+3. Run sql script mySQL_create.ddl (in folder /src/main/resources) 
+4. Open this project in Intellij 15.
+5. Compile and run.
 
  
