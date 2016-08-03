@@ -1,17 +1,19 @@
 #A Schema-Agnostic Approach to Web App development
                                                                 ----by James Xie (jimx83@yahoo.com)
 <h2>Summary:</h2>
- This framework is aimed to design an architecture/solution that enables Create, Retrieve, Update and Delete (a.k.a. CRUD) operations upon heterogeneous tables/schema  whereas client-side JavaScript files have no prior knowledge of the underlying database structure, through integration of various technologies that include open-source Spring MVC, JPA, Hibernate, RESTful, AngularJS, Ajax, JSON, Bootstraps, JavaScript, etc.  
+ This framework is aimed to design an architecture/solution that enables user-friendly Create, Retrieve, Update and Delete (a.k.a. CRUD) operations upon heterogeneous tables/schema  whereas client-side JavaScript files have no prior knowledge of the underlying database structure, through integration of various technologies that include open-source Spring MVC, JPA, Hibernate, RESTful, AngularJS, Ajax, JSON, Bootstraps, JavaScript, etc.  
  
 <strong>Simply put, one single JavaScript file (SearchEditForAll.js) will take care of all CRUD operations for all use cases and JSP/HTML pages, regardless of underlying schema. </strong>
 
 <h3>The benefits </h3>
-•	Greatly reduce client-side development efforts, as we don’t need to create multiple use-case specific JavaScript files. Developers can now focus more on the coding of business logic. 
-•	Reduce project maintenance cost, as the number of client-side JS files for web pages have been significantly cut down.  
-•	SPA-style. For every use case, with respective set of entities/tables, CRUD operations will be performed in one single page, handled by a shared JS file. 
-•	Autonomous client-side data validation. This JavaScript file (SearchEditForAll.js) will also handle all client-side two-way data binding and input validations. 
+•	Greatly reduce client-side development efforts, as we don’t need to create multiple use-case specific JavaScript files. Developers can now focus more on the coding of business logic. <br>
+•	Reduce project maintenance cost, as the number of client-side JS files for web pages have been significantly cut down.  <br>
+•	SPA-style. For every use case, with respective set of entities/tables, CRUD operations will be performed in one single page, handled by a shared JS file. <br>
+•	Autonomous client-side data validation. This JavaScript file (SearchEditForAll.js) will also handle all client-side two-way data binding and input validations.<br>
 •	Dynamic search: by adding entity fields to search view, without changing model, a flexible and dynamic criteria search can be accomplished in no time, for retrieval of data.
+
 <h3>How is this achieved?</h3>
+
 The overall methodology is simple. For each use case, upon loading the CRUD page, it performs a one-time-only retrieval of page-specific metadata of the underlying dataset, which comprised of parent-child entity relationships, all column information and data validation rules, etc. 
 
 Based on the retrieved metadata, the page will carry out CRUD operations by interacting with server-side RESTful controller in JSON. These are all handled by one and only JavaScript file (SearchEditForAll.js) across all the client pages, therefore it is schema-agnostic, or more accurately, table-agnostic. 
@@ -46,13 +48,14 @@ SearchEditForAll.js file should be included for each page. This JavaScript file 
 1.	An entity ID is used to retrieve selected record along with its child entities. This is achieved by utilizing an annotation “@NamedEntityGraph” on entity class. This entity graph should be named in format of "graph.EntityClassName.eagerLoad", where EntityClassName is the page’s underlying entity class, so that our generic EntityManager defined in GenericServiceImp will load the entire entity graph properly.
 2.	The Edit View also implements input validation. SearchEditForAll.js file will use metadata to evaluate each input field’s value including those of child entities if any, when a save operation is performed. Validation information will be displayed if any invalid input is present. There is no need to implement data validations in web page’s HTML codes.  
 
-Conclusion:
+<h3>Conclusion:</h3>
+
  By implementing this framework, the effort of web application development can be significantly reduced on both server-side and client-side. The actual codes on both server and client sides only consists of a few hundred lines of codes, it is designed with performance consideration, and easily maintained. 
 
 <h3>Installation Note:</h3>
 1. install mySql 5.5 (or above)
-2. create a schema "agnostic"
-3. Run sql script mySQL_create.ddl (in folder /src/main/resources) 
+2. create schema "agnostic"
+3. Run sql script mySQL_create.ddl (in folder /src/main/resources) to generate tables for this demo.
 4. Open this project in Intellij 15.
 5. Compile and run.
 
