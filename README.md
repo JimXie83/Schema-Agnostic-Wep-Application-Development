@@ -20,14 +20,15 @@ Based on the retrieved metadata, the page will carry out CRUD operations by inte
 
 <h3>The Server-Side Implementation</h3>
 
-1.	For retrieving Entity metadata, a RESTful controller (AdminController) with a fixed URL has been implemented. Client page, upon loading, will pass a parameter string which is the entity object’s full class name, such as “com.jamesx.domain.employees”. 
-2.	AdminController then uses this full class name to retrieve the following relevant entity information.
-a.	“EmptyInstance”:  Java reflection is applied to instantiate an empty instance of the entity, including related entities (such as child entity) on its entity graph.  
-b.	“EntityRestUrl”:  This is the URL that entity will conduct CRUD operations upon.  This is done by fetching entity object’s customized annotation (@EntityRestUrl). 
-c.	“MetaInfo":  Metadata of the entity is obtained by traversing through the tree of entity graph, retrieving each entity’s metadata, such as property/column name, column label, data type, length, validation RegEx etc., by iterating through entity property’s annotations. 
-d.	“SmartTableInfo”:  This is another customized annotation that is used to configure the display of search result on the web page.
-3.	The repository tier and service tier for CRUD are rather simple. A generic service class (GenericServiceImp) is implemented to respond to all CRUD requests, such as search, save, update, insert, delete, etc. Since it is of generic type, we need to add one line of configuration in our Java configuration file “WebAppConfig.java”, for the respective entity.
-4.	The implementation of entity’s RESTful controllers. An abstract controller (AbstractRestController) is implemented to be generic to interface with web page requests, such as search, save, insert, delete, etc., through exchange of JSON.  As such, by extending this class, the implementation of each entity’s corresponding RESTful controller is very concise, only 3 lines of codes. The entity-specific RESTful controller needs to annotate the URL mapping, e.g. @RequestMapping(value = "/api/category/"), so that the client page would be able to perform CRUD through proper RESTful URL.
+1.	For retrieving Entity metadata, a RESTful controller (AdminController) with a fixed URL has been implemented. Client page, upon loading, will pass a parameter string which is the entity object’s full class name, such as “com.jamesx.domain.employees”. <br>
+2.	AdminController then uses this full class name to retrieve the following relevant entity information. <br>
+a.	“EmptyInstance”:  Java reflection is applied to instantiate an empty instance of the entity, including related entities (such as child entity) on its entity graph.   <br>
+b.	“EntityRestUrl”:  This is the URL that entity will conduct CRUD operations upon.  This is done by fetching entity object’s customized annotation (@EntityRestUrl).  <br>
+c.	“MetaInfo":  Metadata of the entity is obtained by traversing through the tree of entity graph, retrieving each entity’s metadata, such as property/column name, column label, data type, length, validation RegEx etc., by iterating through entity property’s annotations.  <br>
+d.	“SmartTableInfo”:  This is another customized annotation that is used to configure the display of search result on the web page. <br>
+
+3.	The repository tier and service tier for CRUD are rather simple. A generic service class (GenericServiceImp) is implemented to respond to all CRUD requests, such as search, save, update, insert, delete, etc. Since it is of generic type, we need to add one line of configuration in our Java configuration file “WebAppConfig.java”, for the respective entity. <br>
+4.	The implementation of entity’s RESTful controllers. An abstract controller (AbstractRestController) is implemented to be generic to interface with web page requests, such as search, save, insert, delete, etc., through exchange of JSON.  As such, by extending this class, the implementation of each entity’s corresponding RESTful controller is very concise, only 3 lines of codes. The entity-specific RESTful controller needs to annotate the URL mapping, e.g. @RequestMapping(value = "/api/category/"), so that the client page would be able to perform CRUD through proper RESTful URL. <br>
 5.	Finally, a router controller (IndexController) is created to map each webpage to corresponding URL. This web URL is client side browser URL, not related to RESTful URL.
 
 <h3>The Client-Side Implementation</h3>
